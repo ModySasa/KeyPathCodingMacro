@@ -7,5 +7,12 @@
 ///     #stringify(x + y)
 ///
 /// produces a tuple `(x + y, "x + y")`.
-@freestanding(expression)
-public macro stringify<T>(_ value: T) -> (T, String) = #externalMacro(module: "KeyPathCodingMacroMacros", type: "StringifyMacro")
+//@freestanding(expression)
+//public macro stringify<T>(_ value: T) -> (T, String) = #externalMacro(module: "KeyPathCodingMacroMacros", type: "StringifyMacro")
+
+
+@attached(member, names: arbitrary)
+public macro AutoKeyPathCoding() = #externalMacro(
+    module: "KeyPathCodingMacroMacros",
+    type: "AutoKeyPathCodingMacro"
+)
